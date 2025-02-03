@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-josefin: "Josefin Sans", serif;
+  --font-playfair: "Playfair", serif;
+
+  --color-darkgold: #a08d5d; /* Made darker for better readability */
+  --color-pastelpink: #e4d3a0; /* Replaced with closest matching new color */
+  --color-softwhite: #fafaf1; /* Replaced with closest matching new color */
+  --color-middark: #393939; /* Replaced with closest matching new color */
+  --color-midgold: #ebdbca; /* Replaced with closest matching new color */
+}
+
+#newsletterBg {
+  @apply bg-[url('../images/newsletter.jpg')] bg-cover bg-center bg-no-repeat;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    background-position: center;
+    background-size: 0% 0%;
+  }
+  50% {
+    opacity: 0.3;
+    background-size: 150% 150%;
+  }
+  100% {
+    opacity: 0;
+    background-size: 200% 200%;
+  }
+}
+.menuss-lists {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.menuss-lists.active {
+  max-height: 1000px; /* Adjust based on your content height */
+  opacity: 1;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.animate-ripple-overlay {
+  animation: ripple 1.5s ease-out infinite;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 10%,
+    transparent 20%
+  );
+}
+.rotate-180 {
+  transform: rotate(180deg);
+}
+/* Custom animation polish */
+#ingredientsDropdown {
+  transform: translateY(20px); /* Start 20px below button bottom */
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.2s ease-out;
+}
+
+#ingredientsDropdown.translate-y-0 {
+  transform: translateY(0); /* Final position: directly above button */
+  opacity: 1;
+}
+
+@keyframes popup-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-popup-in {
+  animation: popup-in 0.3s ease-out;
+}
+
+@media (max-width: 640px) {
+  #newsletter-popup {
+    padding: 1rem;
+  }
+}
+.background-full-bleed {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Brush Stroke Animation */
+@keyframes brush-stroke {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Logo Reveal with Scale Animation */
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-logo-reveal {
+  animation: logo-reveal 1.3s ease-out forwards;
+}
+.splide__pagination__page {
+  background-color: #a08d5d9d;
+}
+
+.splide__pagination__page.is-active {
+  background-color: #a08d5d;
+}
+.splide__pagination {
+  margin-top: 20px;
+}
